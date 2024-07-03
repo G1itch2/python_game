@@ -1,4 +1,5 @@
 import time
+import random
 
 def print_pause(x):
     print(x)
