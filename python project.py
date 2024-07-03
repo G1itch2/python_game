@@ -1,15 +1,14 @@
 import time
-import random
 
 def print_pause(x):
     print(x)
     time.sleep(1)
-# MY GAME BEGINNING
+# GAME BEGINNING FUNCTION
 def game_beginning():
     print_pause("You find yourself in front of a vampire mansion.")
     print_pause("There are two paths in front of you.")
     print_pause("You can either knock on the door of the house or enter the cave.")
-# THE VAMPIRE MISSION
+# VAMPIRE MASSION
 def vampire_mansion(total_score):
     print_pause("You knock on the door of the house.")
     print_pause("A vampire opens the door and invites you inside.")
@@ -23,10 +22,10 @@ def vampire_mansion(total_score):
         total_score += 5
     else:
         print_pause("Invalid choice. Try again.")
-        return vampire_mansion(total_score) 
+        return vampire_mansion(total_score)  
     print_pause(f"Your score is {total_score}.")
     return total_score
-# THE CAVE MISSION
+# CAVE MISSION
 def cave(total_score):
     print_pause("You enter the dark cave.")
     print_pause("It's cold and eerie.")
@@ -40,10 +39,10 @@ def cave(total_score):
         total_score += 5
     else:
         print_pause("Invalid choice. Try again.")
-        return cave(total_score)  #
+        return cave(total_score)  
     print_pause(f"Your score is {total_score}.")
     return total_score
-# THE TOTAL SCORE
+# GAME MISSION
 def play_game():
     total_score = 0
     game_beginning()
@@ -57,14 +56,13 @@ def play_game():
         return play_game()  
 
     print_pause(f"Final score: {total_score}")
-    if total_score != 20:
-        print_pause("You failed. Try again.")
-    else:
+    if total_score != 10:
         print_pause("Congratulations! You completed the adventure successfully!")
+    else:
+        print_pause("You failed try again")
 
-# THIS MY PLAY AGAIN FUN
-    play_again = input("Would you like to play again? (Y/N)\n").lower()
-    if play_again == 'Y/N':
+    play_again = input("Would you like to play again? (yes/no)\n").lower()
+    if play_again == 'yes':
         play_game()
     else:
         print_pause("Thank you for playing! Goodbye!")
