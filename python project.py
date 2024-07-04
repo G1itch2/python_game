@@ -1,17 +1,13 @@
 import time
 import random
-
-
 def print_pause(message):
     print(message)
     time.sleep(1)
-
 
 def game_beginning():
     print_pause("You find yourself in front of a vampire mansion.")
     print_pause("There are two paths in front of you.")
     print_pause("You can either knock on the door of the house or enter the cave.")
-
 
 def vampire_mansion(total_score):
     print_pause("You knock on the door of the house.")
@@ -30,16 +26,15 @@ def vampire_mansion(total_score):
     print_pause(f"Your score is {total_score}.")
     return total_score
 
-
 def cave(total_score):
     print_pause("You enter the dark cave.")
     print_pause("It's cold and eerie.")
     print_pause("What will you do?")
-    random.choice = input("1. Keep going deeper into the cave.\n2. Turn back and leave the cave.\n")
-    if random.choice == '1':
+    choice = input("1. Keep going deeper into the cave.\n2. Turn back and leave the cave.\n")
+    if choice == '1':
         print_pause("You go deeper into the cave and find a hidden passage!")
         total_score += 10
-    elif random.choice == '2':
+    elif choice == '2':
         print_pause("You leave the cave and return to the mansion.")
         total_score += 5
     else:
@@ -47,7 +42,6 @@ def cave(total_score):
         return cave(total_score)
     print_pause(f"Your score is {total_score}.")
     return total_score
-
 
 def play_game():
     total_score = 0
@@ -74,9 +68,8 @@ def play_game():
         play_game()
     elif play_again == 'no':
         print_pause("Thank you for playing! Goodbye!")
+        play_game()
     else:
         print_pause("Invalid input.")
-        play_game()
+       
 
-
-play_game()
