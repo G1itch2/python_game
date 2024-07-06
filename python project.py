@@ -1,23 +1,27 @@
 import time
 import random
+
+
 def print_pause(message):
     print(message)
     time.sleep(1)
+
 
 def game_beginning():
     print_pause("You find yourself in front of a vampire mansion.")
     print_pause("There are two paths in front of you.")
     print_pause("You can either knock on the door of the house or enter the cave.")
 
+
 def vampire_mansion(total_score):
     print_pause("You knock on the door of the house.")
     print_pause("A vampire opens the door and invites you inside.")
     print_pause("What will you do?")
     random.choice = input("1. Follow the vampire inside.\n2. Go away.\n")
-    if random.choice == '1':
+    if random.choice == "1":
         print_pause("You follow the vampire inside and find a treasure chest!")
         total_score += 10
-    elif random.choice == '2':
+    elif random.choice == "2":
         print_pause("You run away safely. But the adventure continues...")
         total_score += 5
     else:
@@ -26,15 +30,18 @@ def vampire_mansion(total_score):
     print_pause(f"Your score is {total_score}.")
     return total_score
 
+
 def cave(total_score):
     print_pause("You enter the dark cave.")
     print_pause("It's cold and eerie.")
     print_pause("What will you do?")
-    choice = input("1. Keep going deeper into the cave.\n2. Turn back and leave the cave.\n")
-    if choice == '1':
+    choice = input(
+        "1. Keep going deeper into the cave.\n2. Turn back and leave the cave.\n"
+    )
+    if choice == "1":
         print_pause("You go deeper into the cave and find a hidden passage!")
         total_score += 10
-    elif choice == '2':
+    elif choice == "2":
         print_pause("You leave the cave and return to the mansion.")
         total_score += 5
     else:
@@ -43,13 +50,16 @@ def cave(total_score):
     print_pause(f"Your score is {total_score}.")
     return total_score
 
+
 def play_game():
     total_score = 0
     game_beginning()
-    path_choice = input("Which path will you choose?\n1. Knock on the door.\n2. Enter the cave.\n")
-    if path_choice == '1':
+    path_choice = input(
+        "Which path will you choose?\n1. Knock on the door.\n2. Enter the cave.\n"
+    )
+    if path_choice == "1":
         total_score = vampire_mansion(total_score)
-    elif path_choice == '2':
+    elif path_choice == "2":
         total_score = cave(total_score)
     else:
         print_pause("Invalid choice. Try again.")
@@ -64,12 +74,12 @@ def play_game():
 
     play_again = input("Would you like to play again? (yes/no)\n").lower()
 
-    if play_again == 'yes':
+    if play_again == "yes":
         play_game()
-    elif play_again == 'no':
+    elif play_again == "no":
         print_pause("Thank you for playing! Goodbye!")
-        play_game()
     else:
         print_pause("Invalid input.")
-       
 
+
+play_game()
